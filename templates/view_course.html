@@ -1,0 +1,25 @@
+{% extends 'base2.html' %}
+{% block content %}
+<div class="container">
+			
+	<div class="row" style="float:right">
+		<div class="col-sm-6">
+			<a href="/addChapter/{{course.id}}" class="btn btn-primary" style="float:right;" role="button" >Add Chapter</a>
+		</div>
+		<div class="col-sm-6">
+			<a href="/viewFullCourse/{{course.id}}" class="btn btn-primary" style="float:right;" role="button" >View Full Course</a>
+		</div>
+	</div>
+	<h3 style="color:black;">{{course.name}}</h3>
+	<table class="table table-bordered" style="border: 1px solid black;width:50%;">
+	  <tr style="background: #829bf5;">
+		 <th>Chapters</th>
+	  </tr>
+	  {% for result in chapters %}
+		  <tr>
+			<td><a href="/courses/{{course.id}}/chapters/{{result.id}}">{{result.chapter_name}}</a></td>
+		  </tr> 
+	  {% endfor %}
+	</table>
+</div>
+{% endblock %}

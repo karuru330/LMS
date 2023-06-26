@@ -1,0 +1,15 @@
+{% extends 'base2.html' %}
+{% block content %}
+<div class="container">
+	<h3 style="color:black;">Course - <a href="/courses/{{course.id}}">{{course.name}}</a></h3>
+	<h4 style="color:black;">Chapter - <a href="/courses/{{course.id}}/chapters/{{chapter.id}}">{{chapter.chapter_name}}</a></h4>
+	<br>
+	<div class="row col-sm-12">
+
+		{% autoescape off %}
+			 {{ content }}
+		{% endautoescape %}
+	</div>
+	<br><br><br>
+</div>
+{% endblock %}

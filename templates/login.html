@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Login::LMS</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+		<link rel="stylesheet" href="{% static 'login.css' %}">
+
+		<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+		<script src="{% static 'bootstrap/jquery/jquery.min.js' %}"></script>
+		<link rel="stylesheet" href="{% static 'bootstrap/vendor/fontawesome-free/css/all.min.css' %}">
+		
+		<style>
+			body{
+				background: #3AAFA9;
+				font-family: Calibri;
+			}
+		  </style>
+	</head>
+	
+	
+	<body>
+		<div class = "container">
+			<form action="/login" method="post" name="Login_Form"  autocomplete="off">   
+				{% csrf_token %}    
+				<h3 class="form-signin-heading">Learning Management Tool</h3>
+				  <hr class="colorgraph"><br>
+					{% if message != "" %}
+						<center><span style="color:red;">{{message}}</span></center><br>
+					{% endif %}
+				  
+				  <div class="form-group input-group col-sm-12">
+					<div class="input-group-addon">
+						<i class="fa fa-user" aria-hidden="true"></i>
+						</div>
+							<input type="text" class="form-control col-sm-3" style="width:150px" id="username" name="username" placeholder="Enter Username" required>
+						</div>
+						<div class="form-group input-group col-sm-12">
+							<div class="input-group-addon">
+								<i class="fa fa-lock" aria-hidden="true"></i>
+							</div>
+							<input type="password" class="form-control col-sm-3" style="width:150px"  id="password" name="password" placeholder="Enter Password" required>
+						</div>
+				 
+				  <button class="btn btn-lg btn-primary btn-block"  style="width:185px"  name="Submit" value="Login" type="Submit">Login &nbsp;<i class="fa fa-arrow-circle-right" style="color:white"></i></button>  		
+				</div>	
+			</form>			
+		</div>
+	</body>
+</html>

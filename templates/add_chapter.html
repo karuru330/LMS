@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+	<h3 style="color:black">Add Chapter</h3>
+	<br>
+	<form action='/addChapter/{{course.id}}' method='POST' enctype="multipart/form-data">
+		{% csrf_token %}
+		<div class="form-group">
+			<label for="chapter">Chapter Name</label>
+			<input type="text" class="form-control" name="chapter" placeholder="Enter chapter name" style="width:40%" required>
+		</div>
+	
+		<button type="reset" class="btn btn-danger" >Reset</button>
+		<button type="submit" class="btn btn-primary" >Save</button>
+	</form>
+</div>
+{% endblock %}

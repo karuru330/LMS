@@ -1,0 +1,27 @@
+{% extends 'base2.html' %}
+{% block content %}
+<div class="container">
+	<div class="row" style="float:right">
+		<div class="col-sm-4">
+			<a href="/courses/{{course.id}}/chapters/{{chapter.id}}" class="btn btn-primary" style="float:right;" role="button" >Back to Chapter</a>
+		</div>
+		<div class="col-sm-4">
+			<a href="/editConcept/{{course.id}}/{{chapter.id}}/{{concept.id}}" class="btn btn-primary" style="float:right;" role="button" >Edit Concept</a>
+		</div>
+		<div class="col-sm-4">
+			<a href="/addContent/{{course.id}}/{{chapter.id}}/{{concept.id}}" class="btn btn-primary" style="float:right;" role="button" >Add Content</a>
+		</div>
+	</div>
+	<h3 style="color:black;">Course - <a href="/courses/{{course.id}}">{{course.name}}</a></h3>
+	<br>
+	<h4 style="color:black;">Chapter - {{chapter.chapter_name}}</h4>
+	<br>
+	<div class="row col-sm-12">
+
+		{% autoescape off %}
+			 {{ content }}
+		{% endautoescape %}
+	</div>
+	<br><br><br>
+</div>
+{% endblock %}

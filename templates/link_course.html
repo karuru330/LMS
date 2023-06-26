@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+	<a href="/tracks/{{track.id}}" class="btn btn-primary" style="float:right;" role="button" >Back to Track</a>
+	<h3 style="color:black">Link Course</h3>
+	<br>
+	<form action='/linkCourse/{{track.id}}' method='POST'>
+		{% csrf_token %}
+		<label for="course">Select course to link to track - {{track.name}}</label>
+		<select name="course" style="width:200px" class="form-control selcls" required>
+			<option value="" >Select</option>
+			{% for course in courses %}
+				<option value="{{course.name}}" >{{course.name}}</option>
+			{% endfor %}
+		</select>
+		<br><br>
+		<button type="reset" class="btn btn-danger" >Reset</button>
+		<button type="submit" class="btn btn-primary" >Save</button>
+	</form>
+</div>
+{% endblock %}

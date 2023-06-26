@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+			
+	<br>
+	<h2 id="courses" style="color:black;text-align:center">Welcome to the Learning Management Tool</h2>
+	<br>
+	<a href="/addCourse" class="btn btn-primary" style="float:right;" role="button" >Add Course</a>
+	<h3 style="color:black;">Courses</h3>
+	<div class="row">
+		{% for result in courses %}
+			<div class="col-sm-3">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<img src="{{result.course_Img.url}}" width="100%" height="120px"/>
+					</div>
+					<div class="panel-body">
+						<p style="color:black;text-align:center"><b>{{result.name}}</b></p>
+						<a class="btn btn-primary" href="/courses/{{result.id}}" style="width:100%" role="button">Explore</a>
+					</div>
+				</div>
+			</div>
+			
+		{% endfor %}
+	</div>
+	
+	<a href="/addTrack" class="btn btn-primary" style="float:right;" role="button" >Add Track</a>
+	<h3 style="color:black;">Tracks</h3>
+	<div class="row" id="tracks">
+		{% for result in tracks %}
+			<div class="col-sm-3">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<img src="{{result.track_Img.url}}" width="100%" height="120px"/>
+					</div>
+					<div class="panel-body">
+						<p style="color:black;text-align:center"><b>{{result.name}}</b></p>
+						<a class="btn btn-primary" href="/tracks/{{result.id}}" style="width:100%" role="button">Explore</a>
+					</div>
+				</div>
+			</div>
+			
+		{% endfor %}
+	</div>
+</div>
+
+{% endblock %}

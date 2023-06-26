@@ -1,0 +1,24 @@
+{% extends 'base2.html' %}
+{% block content %}
+<div class="container">
+	<a href="/linkCourse/{{track.id}}" class="btn btn-primary" style="float:right;" role="button" >Link Course</a>
+	<h3 style="color:black;">{{track.name}} > Courses</h3>
+	<br>
+	<div class="row">
+		{% for result in courses %}
+			<div class="col-sm-3">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<img src="{{result.course_Img.url}}" width="100%" height="120px"/>
+					</div>
+					<div class="panel-body">
+						<p style="color:black;text-align:center"><b>{{result.name}}</b></p>
+						<a class="btn btn-primary" href="/courses/{{result.id}}" style="width:100%" role="button">Explore</a>
+					</div>
+				</div>
+			</div>
+			
+		{% endfor %}
+	</div>
+</div>
+{% endblock %}
